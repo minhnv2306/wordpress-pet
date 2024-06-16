@@ -17,3 +17,8 @@ bloginfo('name')
 bloginfo('description')
 have_posts(), the_post(), the_permalink(), the_title(), the_content()
 ```
+
+## Section 4: WordPress Specific PHP
+### 12. Header & Footer
+- Tạo file `header.php`
+- Để sử dụng thì gọi hàm `get_header()`
