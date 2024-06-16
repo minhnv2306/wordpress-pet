@@ -157,3 +157,44 @@ function university_adjust_queries($query) {
 
 > Cách sửa này ảnh hưởng sang cả bên admin nên cần thêm các check trong if
 
+### 36. Past Events Page (Custom Query Pagination)
+Chúng ta cùng tạo page lấy các events trong quá khứ
+
+Tên file là cực kì quan trọng: `page-past-events.php` (với past-events là slug page bạn muốn tạo)
+
+Sau đó sử dụng custom queries, sửa từ custom queries bên trên ^^
+
+```php
+$pastEvents = new WP_Query(array(
+    'posts_per_page' => 2,
+    'post_type' => 'event',
+    'meta_key' => 'event_date',
+    'orderby' => 'meta_value_num',
+    'order' => 'DESC',
+    'meta_query' => array( // kiểu and where
+        array(
+            'key' => 'event_date',
+            'compare' => '<',
+            'value' => date('Ymd'),
+            'type' => 'numeric'
+        )
+    )
+));
+```
+
+> Vấn đề ở đây là không hiển thị paginate link mặc dù đã có echo paginate_links();
+
+Do paginate_links là default query
+
+```php
+echo paginate_links(array(
+    'total' => $pastEvents->max_num_pages
+));
+```
+
+```php
+$pastEvents = new WP_Query(array(
+    'paged' => get_query_var('paged', 1),
+    'posts_per_page' => 2,
+));
+```
