@@ -90,3 +90,45 @@ Sử dụng
 ```php
 the_field('event_date');
 ```
+
+### 34. Ordering (Sorting) Custom Queries
+Sắp xếp events tại home
+```php
+$homepageEvents = new WP_Query(array(
+    'posts_per_page' => 2,
+    'post_type' => 'event',
+    'orderby' => 'post_date',
+    'order' => 'DESC'
+));
+```
+
+Khi mà sort với custom key, sử dụng `meta_value` => nói cho WP là sử dụng custom field và `meta_key` là trường đó
+
+```php
+$homepageEvents = new WP_Query(array(
+    'posts_per_page' => 2,
+    'post_type' => 'event',
+    'meta_key' => 'event_date',
+    'orderby' => 'meta_value_num',
+    'order' => 'DESC'
+));
+```
+Tiếp tục filter loại bỏ các sự kiện trong quá khứ với meta_query
+```php
+$homepageEvents = new WP_Query(array(
+    'posts_per_page' => 2,
+    'post_type' => 'event',
+    'meta_key' => 'event_date',
+    'orderby' => 'meta_value_num',
+    'order' => 'DESC',
+    'meta_query' => array( // kiểu and where
+        array(
+            'key' => 'event_date',
+            'compare' => '>=',
+            'value' => date('Ymd'),
+            'type' => 'numeric'
+        )
+    )
+));
+```
+
