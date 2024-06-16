@@ -59,3 +59,34 @@ register_post_type('event', array(
     ...
 ));
 ```
+
+### 32. Custom Fields
+Thêm trường cho date
+
+Đầu tiên thêm custom fields
+
+```php
+register_post_type('event', array(
+    'supports' => array('title', 'editor', 'excerpt', 'custom-fields'),
+    ...
+));
+```
+
+Nhưng
+
+> Don't revinvent the wheel
+
+> It's probably not a good idea.
+
+> It wouldn't be a very efficient use of our time because other super talented people have already spent hundreds, if not thousands of hours creating the perfect custom field solutions.
+
+Sử dụng Plugin (1 trong 2)
+- **Advanced Custom Fields (ACF) - Ellit Condon**
+- **CMB2 (Custom Metaboxes 2)**
+
+Xoá 'custom-fields' bên trên đi và cài plugin
+
+Sử dụng
+```php
+the_field('event_date');
+```
