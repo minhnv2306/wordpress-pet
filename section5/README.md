@@ -28,3 +28,24 @@ get_pages(array(
     'child_of' => get_the_ID()
 ));
 ```
+
+### 20. A Few Quick Edits / Improvements
+Scale thiết bị
+```
+<meta name="viewport" content="width=device-width, initial-scale=1">
+```
+
+Ngôn ngữ web
+```
+<html <?php language_attributes(); ?>>
+```
+
+Charset
+```
+<meta charset="<?php bloginfo('charset'); ?>">
+```
+
+Lấy các class wp trong body
+```
+<body <?php body_class(); ?>>
+```
