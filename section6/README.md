@@ -8,3 +8,7 @@ the_excerpt();
 the_author_posts_link();
 the_time();
 ```
+
+### 24. Blog Continued
+Tạo pagination: paginate_link();
+
