@@ -49,3 +49,13 @@ Trang toàn bộ event
 
 Tạo file: `archive-event.php`
 
+### 31. Quick Timeout: Misc Updates
+- Sử dụng excerpt để hiển thị blog thay vì description
+- Event lại ko có trường này, cần config thêm trong register_post_type
+```php
+register_post_type('event', array(
+    'show_in_rest' => true, // hiển thị đẹp như Post =)) - modern block. Kết hợp editor ở dưới
+    'supports' => array('title', 'editor', 'excerpt'),
+    ...
+));
+```
