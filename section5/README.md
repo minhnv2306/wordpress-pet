@@ -49,3 +49,26 @@ Lấy các class wp trong body
 ```
 <body <?php body_class(); ?>>
 ```
+
+### 21. Navigation Menus
+> Phần này cần code thêm trong file functions.php mà code tác giả cung cấp chưa đủ
+
+Sử dụng hàm
+```
+register_nav_menu('headerMenuLocation', 'Header Menu Location');
+```
+
+Sử dụng `wp_nav_menu(array( 'theme_location' => 'headerMenuLocation' ))`;
+
+Footer tương tự
+```
+register_nav_menu('footerLocationOne', 'Footer Location One');
+register_nav_menu('footerLocationTwo', 'Footer Location Two');
+wp_nav_menu(array( 'theme_location' => 'footerLocationOne' ));
+```
+
+Không sử dụng hàm trên mà tự điền các item vào menu, thêm class "current-menu-item" mặc định hỗ trợ WP
+
+```
+is_page('about-us')
+```
