@@ -37,3 +37,5 @@ while ($homepagePosts->have_posts()) {
 wp_trim_words(get_the_content(), 18);
 wp_reset_postdata();
 ```
+
+### 27. Blog: Few Quick Edits & Improvements
