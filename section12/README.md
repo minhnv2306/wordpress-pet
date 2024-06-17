@@ -18,7 +18,7 @@ add_filter('acf/fields/google_map/api', 'universityMapKey');
 ```
 - Load lại trang Campus, google map đã hoạt động. Awesome!
 
-## 53. Campus Map on Front-End
+## 56. Campus Map on Front-End
 - Tạo các file archive-campus.php và single-campus.php
 - Hiển thị map
 ```php
