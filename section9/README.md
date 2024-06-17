@@ -67,3 +67,23 @@ Nhưng cách này áp dụng cho tất cả các ảnh, như vậy không hay l�
 ![alt text](../images/Screen%20Shot%202022-02-16%20at%2022.07.09.png)
 
 Ngon, ko cần thay đổi code, F5 lại web và cảm nhận ảnh được crop xịn xò =)) (Ảnh có thể bị cache lần đầu load trang nhưng không sao. Product có nhiều người xem nên người load lần đầu bị cache cũng không để ý đâu =)))
+
+## 44. Page Banner Dynamic Background Image
+- Tạo custom field cho Page Banner Subtitle (tiêu đề) và Page Banner Background Image (ảnh background)
+- Thêm size ảnh
+```php
+add_image_size('pageBanner', 1500, 350, true);
+```
+- Sử dụng
+```php
+the_field('page_banner_subtitle');
+
+$pageBannerImage = get_field('page_banner_background_image');
+echo $pageBannerImage['url'];
+
+// Sử dụng hàm đã custom size
+echo $pageBannerImage['sizes']['pageBanner'];
+```
+
+> Fefresh thông thường (F5) không load ảnh bạn vừa crop vì ảnh bị cache, bạn phải sử dụng full refresh - ấn vào icon refresh trên trình duyệt
+
