@@ -39,3 +39,38 @@ function university_adjust_queries($query) {
 - Tạo quan hệ event với program qua custom fields: Related Program(s)
     - Chọn field type: Relationship
     - Post Type: Program
+
+## 38. Displaying Relationships (Front-End)
+```php
+$relatedPrograms = get_field('related_programs');
+
+foreach($relatedPrograms as $program) {
+    echo get_the_title($program);
+}
+```
+Trỏ ngược lại từ program ra cha là event. Chúng ta sẽ không phải tạo custom field program là event nhé? So what should we do?
+
+Chúng ta sẽ sử dụng custom queries hoặc 1 thứ gì đó tương tự.
+
+```php
+$homepageEvents = new WP_Query(array(
+    'posts_per_page' => 2,
+    'post_type' => 'event',
+    'meta_key' => 'event_date',
+    'orderby' => 'meta_value_num',
+    'order' => 'DESC',
+    'meta_query' => array( // kiểu and where
+        array(
+            'key' => 'event_date',
+            'compare' => '>=',
+            'value' => date('Ymd'),
+            'type' => 'numeric'
+        ),
+        array(
+            'key' => 'related_programs',
+            'compare' => 'LIKE', // contains (xem thêm video giải thích LIKE là OK)
+            'value' => '"' . get_the_ID() . '"',
+        )
+    )
+));
+```

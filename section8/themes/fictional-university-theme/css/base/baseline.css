@@ -1,24 +1,24 @@
-@mixin atSmall {
+@define-mixin atSmall {
   @media (min-width: 530px) {
-    @content;
+    @mixin-content;
   }
 }
 
-@mixin atSmallMedium {
+@define-mixin atSmallMedium {
   @media (min-width: 767px) {
-    @content;
+    @mixin-content;
   }
 }
 
-@mixin atMedium {
+@define-mixin atMedium {
   @media (min-width: 960px) {
-    @content;
+    @mixin-content;
   }
 }
 
 body {
   color: #333;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
   position: relative;
 }
@@ -36,13 +36,10 @@ a:hover {
   text-decoration: none;
 }
 
-p,
-ul,
-ol {
+p, ul, ol {
   margin: 0 0 1.65em 0;
 }
 
-p,
-li {
+p, li {
   line-height: 1.65;
 }
