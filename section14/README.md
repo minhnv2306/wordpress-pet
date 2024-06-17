@@ -11,7 +11,7 @@ $.getJSON(url, function(posts) {
 ## 68. Generate HTML Based on JSON
 ## 69. Conditional Logic Within Template Literal
 
-```
+```php
 wp_localize_script('main-univeristy-js', 'universityData', array(
     'root_url' => get_site_url()
 ));
