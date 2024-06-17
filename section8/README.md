@@ -74,3 +74,6 @@ $homepageEvents = new WP_Query(array(
     )
 ));
 ```
+
+## 39. Quick Program Edits
+Chỉnh css với custom hiển thị dữ liệu trống thôi 😄
