@@ -44,4 +44,11 @@ function pageBanner($args = NULL) {
 
 > get_theme_file_uri('/images/ocean.jpg');
 
-
+## 49. Using Our "pageBanner" Function
+Truyền các tham số để sử dụng pageBanner function thôi
+```php
+pageBanner(array(
+    'title' => 'All Events'
+    'subtitle' => 'See what is going on in our world.',
+));
+```
