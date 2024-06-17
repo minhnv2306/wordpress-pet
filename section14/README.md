@@ -18,7 +18,7 @@ wp_localize_script('main-univeristy-js', 'universityData', array(
 ```
 => Đoạn code thêm 1 đoạn mã JS vào để lấy được link rool_url
 
-# Ảnh
+![alt text](../images/Screen%20Shot%202022-02-19%20at%2022.52.44.png)
 
 ## 70. Quick Misc Edits
 - Tách phần html search overlay ra file js
