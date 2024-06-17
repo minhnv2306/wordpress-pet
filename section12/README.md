@@ -35,3 +35,25 @@ function university_files() {
 }
 ```
 - Import đã OK, xem code trong file src/modules/GoogleMap.js xử lý load lat, lng động nhé
+
+## 57. Campuses Continued
+- Click vào từng địa điểm sẽ hiển thị thông tin chi tiết địa điểm đó
+```PHP
+// archive-campus.php
+<div class="marker" data-lat="<?php echo $mapLocation['lat'] ?>" data-lng="<? php echo $mapLocation['lng'] ?>">
+<h3> <?php the_title(); ?></h3>
+<?php echo $mapLocation['address']; ?>
+</div>
+```
+- OK cải thiện thêm chút nữa link đến địa điểm nào
+```PHP
+// archive-campus.php
+<div class="marker" data-lat="<?php echo $mapLocation['lat'] ?>" data-lng="<? php echo $mapLocation['lng'] ?>">
+<h3> <a href="<?php the_permalink(); ?>"> <?php the_title(); ?></h3>
+<?php echo $mapLocation['address']; ?>
+</div>
+```
+- Tạo quan hệ campus với program
+
+## 58. Final Campus Details
+- Chỉnh custom query load hết campus thôi
