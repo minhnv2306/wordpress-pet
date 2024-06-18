@@ -1,6 +1,6 @@
 import "./index.scss"
 import { TextControl, Flex, FlexBlock, FlexItem, Button, Icon, PanelBody, PanelRow, ColorPicker } from "@wordpress/components"
-import { InspectorControls, BlockControls, AlignmentToolbar } from "@wordpress/block-editor"
+import { InspectorControls, BlockControls, AlignmentToolbar, useBlockProps } from "@wordpress/block-editor"
 import { ChromePicker } from "react-color"
 ;(function () {
   let locked = false
@@ -53,6 +53,11 @@ wp.blocks.registerBlockType("ourplugin/are-you-paying-attention", {
 })
 
 function EditComponent(props) {
+  const blockProps = useBlockProps({
+    className: "paying-attention-edit-block",
+    style: { backgroundColor: props.attributes.bgColor }
+  })
+
   function updateQuestion(value) {
     props.setAttributes({ question: value })
   }
@@ -73,7 +78,7 @@ function EditComponent(props) {
   }
 
   return (
-    <div className="paying-attention-edit-block" style={{ backgroundColor: props.attributes.bgColor }}>
+    <div {...blockProps}>
       <BlockControls>
         <AlignmentToolbar value={props.attributes.theAlignment} onChange={x => props.setAttributes({ theAlignment: x })} />
       </BlockControls>
@@ -91,6 +96,7 @@ function EditComponent(props) {
           <Flex>
             <FlexBlock>
               <TextControl
+                autoFocus={answer == undefined}
                 value={answer}
                 onChange={newValue => {
                   const newAnswers = props.attributes.answers.concat([])
@@ -115,7 +121,7 @@ function EditComponent(props) {
       <Button
         isPrimary
         onClick={() => {
-          props.setAttributes({ answers: props.attributes.answers.concat([""]) })
+          props.setAttributes({ answers: props.attributes.answers.concat([undefined]) })
         }}
       >
         Add another answer
