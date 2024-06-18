@@ -8,12 +8,23 @@
   Author URI: https://www.udemy.com/user/bradschiff/
 */
 
-add_filter('the_content', 'addToEndOfPost');
-
-function addToEndOfPost($content) {
-  if (is_page() && is_main_query()) {
-    return $content . '<p>My name is Brad.</p>';
+class WordCountAndTimePlugin {
+  function __construct() {
+    add_action('admin_menu', array($this, 'adminPage'));
   }
 
-  return $content;
+  function adminPage() {
+    add_options_page('Word Count Settings', 'Word Count', 'manage_options', 'word-count-settings-page', array($this, 'ourHTML'));
+  }
+
+  function ourHTML() { ?>
+    <div class="wrap">
+      <h1>Word Count Settings</h1>
+    </div>
+  <?php }
 }
+
+$wordCountAndTimePlugin = new WordCountAndTimePlugin();
+
+
+
