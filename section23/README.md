@@ -329,6 +329,5 @@ function handleForm() {
 }
 ```
 
-
 ## 134. Finishing Word Filter Plugin
 - add_filter content post, thay thế các từ trong options plugin_words_to_filer bằng các kí tự config trong replacement-text option thôi :D
