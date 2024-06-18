@@ -6086,7 +6086,8 @@ class Like {
 
   events() {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(".like-box").on("click", this.ourClickDispatcher.bind(this));
-  }
+  } // methods
+
 
   ourClickDispatcher(e) {
     var currentLikeBox = jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.target).closest(".like-box");
@@ -6099,11 +6100,29 @@ class Like {
   }
 
   createLike() {
-    alert("create test message");
+    jquery__WEBPACK_IMPORTED_MODULE_0___default.a.ajax({
+      url: universityData.root_url + "/wp-json/university/v1/manageLike",
+      type: "POST",
+      success: response => {
+        console.log(response);
+      },
+      error: response => {
+        console.log(response);
+      }
+    });
   }
 
   deleteLike() {
-    alert("delete test message");
+    jquery__WEBPACK_IMPORTED_MODULE_0___default.a.ajax({
+      url: universityData.root_url + "/wp-json/university/v1/manageLike",
+      type: "DELETE",
+      success: response => {
+        console.log(response);
+      },
+      error: response => {
+        console.log(response);
+      }
+    });
   }
 
 }
