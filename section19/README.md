@@ -147,7 +147,7 @@ createNote() {
 ## 97. Creating New Notes (Part 2)
 - Chỉnh js append post
 
-## 99. Note Permissions and Security (Part 1)
+## 98. Note Permissions and Security (Part 1)
 - Cần để post ở chế độ private
 ```php
 // function.php
@@ -164,7 +164,7 @@ function makeNotePrivate($data) {
 }
 ```
 
-## 100. Note Permissions and Security (Part 2)
+## 99. Note Permissions and Security (Part 2)
 - Lọc filter HTML
 - Admin Sidebar => Users => General => Unfiltered HTML
 > esc_attr(get_the_content()); esc_html(get_the_content()); esc_textarea(get_the_content());
@@ -183,7 +183,7 @@ function makeNotePrivate($data) {
 }
 ```
 
-## 101. Per-User Post Limit
+## 100. Per-User Post Limit
 - Giới hạn số bài post cho mỗi người dùng
 ```php
 // function.php
